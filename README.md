@@ -2,13 +2,18 @@
 Block GMRES using Kokkos
 
 ## Module list
- 1) gcc/6.3.0             3) cmake/3.9.1
- 2) cuda/9.0              4) openmpi/1.10.2
+On machine Romeo 2013 with Nvidia K20x cards:
 
- ## Environment variables
+gcc/6.3.0; cmake/3.9.1; cuda/9.0; openmpi/1.10.2
 
- export OMPI_CXX=/home/xinzhewu/workstations/trilinos/Trilinos-trilinos-release-12-12-branch/packages/kokkos/config/nvcc_wrapper
+On machine Romeo 2018 with Nvidia P100 cards:
 
- export NVCC_WRAPPER_DEFAULT_COMPILER=/apps/gnu_gcc/6.3.0/bin/g++
+gcc/6.3.0; cmake/3.12.0; cuda/9,2; openmpi/3.1.2 
 
- export CUDA_LAUNCH_BLOCKING=1
+## Environment variables
+
+export OMPI_CXX=./../Trilinos-trilinos-release-12-12-branch/packages/kokkos/config/nvcc_wrapper
+
+export NVCC_WRAPPER_DEFAULT_COMPILER=./../6.3.0/bin/g++
+
+export CUDA_LAUNCH_BLOCKING=1

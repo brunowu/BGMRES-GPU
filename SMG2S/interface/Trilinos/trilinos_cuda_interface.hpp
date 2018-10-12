@@ -51,7 +51,7 @@ using Teuchos::tuple;
 using std::cout;
 using std::endl;
 
-typedef Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial> node_type;
+typedef Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Cuda> node_type;
 
 #if defined(__USE_COMPLEX__) && defined(__USE_DOUBLE__) && defined (__USE_64BIT__)
 typedef std::complex<double>               ST;

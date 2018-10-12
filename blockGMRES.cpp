@@ -36,7 +36,7 @@ typedef Teuchos::ScalarTraits<ST>             					SCT;
 typedef SCT::magnitudeType                    					MT;
 
 
-typedef Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Serial> node_type;
+typedef Kokkos::Compat::KokkosDeviceWrapperNode<Kokkos::Cuda> node_type;
 
 
 typedef Tpetra::Map<>::local_ordinal_type     					LO;

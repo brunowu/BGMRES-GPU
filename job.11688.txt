@@ -1,0 +1,63 @@
+Teuchos::GlobalMPISession::GlobalMPISession(): started processor with name romeo10.ro18.urca and rank 0!
+Teuchos::GlobalMPISession::GlobalMPISession(): started processor with name romeo11.ro18.urca and rank 1!
+Testing Scalar == double
+GMRES ]> Building problem...
+Info ]> Do not provide the outside given spectrum file, using the internel function to generate them.
+Teuchos::GlobalMPISession::GlobalMPISession(): started processor with name romeo13.ro18.urca and rank 3!
+Teuchos::GlobalMPISession::GlobalMPISession(): started processor with name romeo12.ro18.urca and rank 2!
+Initial matrix generation time = 0.019655
+
+Tpetra::CrsMatrix (Kokkos refactor): {isFillComplete: true, global dimensions: [100000, 100000], global number of entries: 699988}
+
+GMRES ]> SMG2S generated test matrix ... double
+
+Tpetra::CrsMatrix (Kokkos refactor): {isFillComplete: true, global dimensions: [100000, 100000], global number of entries: 699988}
+
+
+Tpetra::CrsMatrix (Kokkos refactor): {isFillComplete: true, global dimensions: [100000, 100000], global number of entries: 699988}
+
+
+Tpetra::CrsMatrix (Kokkos refactor): {isFillComplete: true, global dimensions: [100000, 100000], global number of entries: 699988}
+
+Building TIME = 3.055570
+GMRES ]> Construct solver ...
+Construct TIME = 0.000082
+GMRES ]> Solving problem ...
+ Performing restart number 1 of 100
+
+ Performing restart number 2 of 100
+
+
+Belos::StatusTestGeneralOutput: Passed
+  (Num calls,Mod test,State test): (103, 1, Passed)
+   Passed.......OR Combination -> 
+     Failed.......Number of Iterations = 100 == 100
+     Unconverged..(2-Norm Res Vec) / (2-Norm Prec Res0)
+                  residual [ 0 ] = 1.61725e-05 > 1e-05
+                  residual [ 1 ] = 1.51994e-05 > 1e-05
+
+Passed.......OR Combination -> 
+  Failed.......Number of Iterations = 100 == 100
+  Unconverged..(2-Norm Res Vec) / (2-Norm Prec Res0)
+               residual [ 0 ] = 1.61725e-05 > 1e-05
+               residual [ 1 ] = 1.51994e-05 > 1e-05
+
+======================================================================================================================
+
+                                        TimeMonitor results over 4 processors
+
+Timer Name                                   MinOverProcs     MeanOverProcs    MaxOverProcs     MeanOverCallCounts    
+----------------------------------------------------------------------------------------------------------------------
+double: BlockGmresSolMgr total solve time    1.711 (1)        1.712 (1)        1.712 (1)        1.712 (1)             
+double: DGKS[2]: Ortho (Inner Product)       1.32 (303)       1.321 (303)      1.323 (303)      0.004359 (303)        
+double: DGKS[2]: Ortho (Norm)                0.05151 (612)    0.07804 (612)    0.09582 (612)    0.0001275 (612)       
+double: DGKS[2]: Ortho (Update)              0.1435 (303)     0.1471 (303)     0.1526 (303)     0.0004856 (303)       
+double: DGKS[2]: Orthogonalization           1.573 (103)      1.594 (103)      1.609 (103)      0.01547 (103)         
+double: Operation Op*x                       0.0981 (103)     0.1134 (103)     0.1343 (103)     0.001101 (103)        
+double: Operation Prec*x                     0 (0)            0 (0)            0 (0)            0 (0)                 
+======================================================================================================================
+Solving TIME = 1.712508
+GMRES ]> Close of GMRES after waiting a little instant
+GMRES ]> Close of GMRES after waiting a little instant
+GMRES ]> Close of GMRES after waiting a little instant
+GMRES ]> Close of GMRES after waiting a little instant

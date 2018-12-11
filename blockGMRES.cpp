@@ -29,7 +29,7 @@
 
 #include <ctime>
 
-typedef std::complex<double>                  					ST;
+typedef double                  					ST;
 
 
 typedef Teuchos::ScalarTraits<ST>             					SCT;
@@ -79,11 +79,11 @@ int main(int argc, char *argv[]){
 	bool allprint      = false;
 	bool verbose 	   = (myRank==0);
 	bool debug 		   = false;
-	std::string filename("utm300_cp.mtx");
+	std::string filename("utm300.mtx");
 	int frequency 	   = -1;
 	int numVectors 	   = 2;
-  int blocksize 	   = 100;
-	int numblocks 	   = 50;
+  int blocksize 	   = 4;
+	int numblocks 	   = 40;
 	double tol 		   = 1.0e-5;
 	bool precond 	   = false;
 	bool dumpdata 	   = false;
@@ -96,14 +96,14 @@ int main(int argc, char *argv[]){
 	int latency = 1;
 	bool lspuse = true;
 
-	int max_iters = 5000;
-	int max_restarts = 1000;
+	int max_iters = 100;
+	int max_restarts = 100;
 
 	/*smg2s parameters*/
-	bool usesmg2s = false;
-	global_ordinal_type probSize = 10;
-	int continous = 4;
-	int lbandwidth = 4;
+	bool usesmg2s = true;
+	global_ordinal_type probSize = 100000;
+	int continous = 2;
+	int lbandwidth = 3;
 	std::string spectra_file = " ";
 
 	Teuchos::CommandLineProcessor cmdp(false,true);
@@ -158,7 +158,8 @@ int main(int argc, char *argv[]){
 	mptestpl.set("Maximum Iterations", max_iters);
 	mptestpl.set("Maximum Restarts", max_restarts);
 
-	int verbLevel = Belos::Errors + Belos::Warnings;
+//	int verbLevel = Belos::Errors + Belos::Warnings;
+	int verbLevel;
 /*
 	if (debug) {
     	verbLevel |= Debug;
@@ -250,8 +251,7 @@ int main(int argc, char *argv[]){
 		for(i = 0; i < nrows; i++){
 			rnd_r = (double)std::rand()/RAND_MAX;
 			rnd_i = (double)std::rand()/RAND_MAX;
-			v.real(rnd_r);
-			v.imag(rnd_i);
+			v = rnd_r;
 		}		
 	}
 
@@ -300,18 +300,22 @@ int main(int argc, char *argv[]){
 	int diter;
 
 	t5 = MPI_Wtime();
+/*
 	try {
       ret = solver->solve();
     }
-
+/
     catch (std::exception &e) {
       std::cout << "Caught exception: " << std::endl << e.what() << std::endl;
       ret = Belos::Unconverged;
     }
+*/
+	ret = solver->solve();
 
   	t6 = MPI_Wtime();
 
 	if(myRank == 0) printf("Solving TIME = %f\n", t6 - t5 ); 
+/*
 
 	diter = solver->getNumIters();
 
@@ -326,6 +330,8 @@ int main(int argc, char *argv[]){
 		}
 	}
   
+	MPI_Abort(MPI_COMM_WORLD, 911);
+*/
   	printf("GMRES ]> Close of GMRES after waiting a little instant\n");
 
 

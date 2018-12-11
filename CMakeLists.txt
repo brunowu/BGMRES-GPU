@@ -5,10 +5,13 @@ MESSAGE("Starting configure")
 
 #set TRILINOS_PATH of the platform
 #set(TRILINOS_PATH /Users/xwu/phd_xwu/trilinos-12.12.1-Source/installation)
-set(TRILINOS_PATH /Users/xwu/phd_xwu/trilinos-12.12.1-Source2/installation2)
+#set(TRILINOS_PATH /Users/xwu/phd_xwu/trilinos-12.12.1-Source2/installation2)
 #set(TRILINOS_PATH /home/xinzhewu/workstations/trilinos/install)
 #set(TRILINOS_PATH /home/xinzhewu/workstations/trilinos/install-openmpi-1.10.2)
 #set(TRILINOS_PATH /home/xinzhewu/workstations/trilinos/install-openmpi-1.10.2-gcc5.1.0)
+#set(TRILINOS_PATH /home/xinzhewu/workstations/trilinos/install-openmpi-1.10.2-gcc6.3.0-cuda-openmp)
+
+set(TRILINOS_PATH /home/xinzhewu/softwares/trilinos-final/trilinos_gpu_openmpi2)
 
 SET(CMAKE_PREFIX_PATH ${TRILINOS_PATH} ${CMAKE_PREFIX_PATH})
 
@@ -94,7 +97,7 @@ link_directories(${Trilinos_LIBRARY_DIRS} ${Trilinos_TPL_LIBRARY_DIRS} )
 # /Library/Frameworks/QtCore.framework /Library/Frameworks/QtGui.framework)
 
 #set Belos libraries to link (LINK_LIBRARIES_GMRES)
-set(LINK_LIBRARIES_GMRES ${Tpetra_LIBRARIES} ${Teuchos_LIBRARIES} ${Belos_LIBRARIES})
+set(LINK_LIBRARIES_GMRES ${Tpetra_LIBRARIES} ${Teuchos_LIBRARIES} ${Belos_LIBRARIES} -lgfortran)
 
 add_executable(bgmres.exe blockGMRES.cpp)
 
